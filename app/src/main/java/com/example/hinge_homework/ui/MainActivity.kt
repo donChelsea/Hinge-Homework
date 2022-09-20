@@ -2,8 +2,6 @@ package com.example.hinge_homework.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.hinge_homework.databinding.ActivityMainBinding
 import com.example.hinge_homework.domain.models.User
 import com.example.hinge_homework.ui.adapter.OfficePagerAdapter
@@ -24,14 +22,15 @@ class MainActivity : AppCompatActivity() {
         )
 
         val pagerAdapter = OfficePagerAdapter(users)
-        binding.pager.adapter = pagerAdapter
+        binding.apply {
+            pager.adapter = pagerAdapter
+            pager.isUserInputEnabled = false
+            fab.setOnClickListener { nextProfile() }
+        }
+
     }
 
-    override fun onBackPressed() {
-        if (binding.pager.currentItem == 0) {
-            super.onBackPressed()
-        } else {
-            binding.pager.currentItem = binding.pager.currentItem - 1
-        }
+    private fun nextProfile() {
+        binding.pager.currentItem = binding.pager.currentItem + 1
     }
 }
