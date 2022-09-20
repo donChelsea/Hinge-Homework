@@ -5,7 +5,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.hinge_homework.databinding.ActivityMainBinding
-import com.example.hinge_homework.domain.models.User
 import com.example.hinge_homework.ui.adapter.OfficePagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
